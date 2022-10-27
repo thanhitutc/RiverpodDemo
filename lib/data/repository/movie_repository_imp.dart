@@ -16,5 +16,4 @@ class MovieRepositoryImp implements MovieRepository {
       throw Exception('http error: $e');
     }
   }
-
 }

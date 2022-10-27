@@ -20,10 +20,12 @@ Popular _$PopularFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Popular {
-  int? get page => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get overview => throw _privateConstructorUsedError;
+  @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,11 +39,11 @@ abstract class $PopularCopyWith<$Res> {
       _$PopularCopyWithImpl<$Res, Popular>;
   @useResult
   $Res call(
-      {int? page,
-      String? backdropPath,
+      {int? id,
+      @JsonKey(name: 'backdrop_path') String? backdropPath,
       String? title,
       String? overview,
-      String? posterPath});
+      @JsonKey(name: 'poster_path') String? posterPath});
 }
 
 /// @nodoc
@@ -57,16 +59,16 @@ class _$PopularCopyWithImpl<$Res, $Val extends Popular>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
+    Object? id = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
   }) {
     return _then(_value.copyWith(
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
@@ -96,11 +98,11 @@ abstract class _$$_PopularCopyWith<$Res> implements $PopularCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? page,
-      String? backdropPath,
+      {int? id,
+      @JsonKey(name: 'backdrop_path') String? backdropPath,
       String? title,
       String? overview,
-      String? posterPath});
+      @JsonKey(name: 'poster_path') String? posterPath});
 }
 
 /// @nodoc
@@ -113,16 +115,16 @@ class __$$_PopularCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
+    Object? id = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
   }) {
     return _then(_$_Popular(
-      page: freezed == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
@@ -148,29 +150,31 @@ class __$$_PopularCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Popular implements _Popular {
   const _$_Popular(
-      {required this.page,
-      required this.backdropPath,
+      {required this.id,
+      @JsonKey(name: 'backdrop_path') this.backdropPath,
       required this.title,
       required this.overview,
-      required this.posterPath});
+      @JsonKey(name: 'poster_path') this.posterPath});
 
   factory _$_Popular.fromJson(Map<String, dynamic> json) =>
       _$$_PopularFromJson(json);
 
   @override
-  final int? page;
+  final int? id;
   @override
+  @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
   @override
   final String? title;
   @override
   final String? overview;
   @override
+  @JsonKey(name: 'poster_path')
   final String? posterPath;
 
   @override
   String toString() {
-    return 'Popular(page: $page, backdropPath: $backdropPath, title: $title, overview: $overview, posterPath: $posterPath)';
+    return 'Popular(id: $id, backdropPath: $backdropPath, title: $title, overview: $overview, posterPath: $posterPath)';
   }
 
   @override
@@ -178,7 +182,7 @@ class _$_Popular implements _Popular {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Popular &&
-            (identical(other.page, page) || other.page == page) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
             (identical(other.title, title) || other.title == title) &&
@@ -191,7 +195,7 @@ class _$_Popular implements _Popular {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, page, backdropPath, title, overview, posterPath);
+      Object.hash(runtimeType, id, backdropPath, title, overview, posterPath);
 
   @JsonKey(ignore: true)
   @override
@@ -209,23 +213,25 @@ class _$_Popular implements _Popular {
 
 abstract class _Popular implements Popular {
   const factory _Popular(
-      {required final int? page,
-      required final String? backdropPath,
+      {required final int? id,
+      @JsonKey(name: 'backdrop_path') final String? backdropPath,
       required final String? title,
       required final String? overview,
-      required final String? posterPath}) = _$_Popular;
+      @JsonKey(name: 'poster_path') final String? posterPath}) = _$_Popular;
 
   factory _Popular.fromJson(Map<String, dynamic> json) = _$_Popular.fromJson;
 
   @override
-  int? get page;
+  int? get id;
   @override
+  @JsonKey(name: 'backdrop_path')
   String? get backdropPath;
   @override
   String? get title;
   @override
   String? get overview;
   @override
+  @JsonKey(name: 'poster_path')
   String? get posterPath;
   @override
   @JsonKey(ignore: true)

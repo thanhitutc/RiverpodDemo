@@ -20,10 +20,10 @@ PopularResponse _$PopularResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PopularResponse {
-  int? get page => throw _privateConstructorUsedError;
-  List<Popular>? get populars => throw _privateConstructorUsedError;
-  int? get totalPages => throw _privateConstructorUsedError;
-  int? get totalResults => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  List<Popular> get results => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
+  int get totalResults => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $PopularResponseCopyWith<$Res> {
       _$PopularResponseCopyWithImpl<$Res, PopularResponse>;
   @useResult
   $Res call(
-      {int? page, List<Popular>? populars, int? totalPages, int? totalResults});
+      {int page, List<Popular> results, int totalPages, int totalResults});
 }
 
 /// @nodoc
@@ -54,28 +54,28 @@ class _$PopularResponseCopyWithImpl<$Res, $Val extends PopularResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
-    Object? populars = freezed,
-    Object? totalPages = freezed,
-    Object? totalResults = freezed,
+    Object? page = null,
+    Object? results = null,
+    Object? totalPages = null,
+    Object? totalResults = null,
   }) {
     return _then(_value.copyWith(
-      page: freezed == page
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      populars: freezed == populars
-          ? _value.populars
-          : populars // ignore: cast_nullable_to_non_nullable
-              as List<Popular>?,
-      totalPages: freezed == totalPages
+              as int,
+      results: null == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<Popular>,
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalResults: freezed == totalResults
+              as int,
+      totalResults: null == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -89,7 +89,7 @@ abstract class _$$_PopularResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? page, List<Popular>? populars, int? totalPages, int? totalResults});
+      {int page, List<Popular> results, int totalPages, int totalResults});
 }
 
 /// @nodoc
@@ -103,28 +103,28 @@ class __$$_PopularResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
-    Object? populars = freezed,
-    Object? totalPages = freezed,
-    Object? totalResults = freezed,
+    Object? page = null,
+    Object? results = null,
+    Object? totalPages = null,
+    Object? totalResults = null,
   }) {
     return _then(_$_PopularResponse(
-      page: freezed == page
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
-      populars: freezed == populars
-          ? _value._populars
-          : populars // ignore: cast_nullable_to_non_nullable
-              as List<Popular>?,
-      totalPages: freezed == totalPages
+              as int,
+      results: null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<Popular>,
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalResults: freezed == totalResults
+              as int,
+      totalResults: null == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -133,34 +133,36 @@ class __$$_PopularResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PopularResponse implements _PopularResponse {
   const _$_PopularResponse(
-      {required this.page,
-      required final List<Popular>? populars,
-      required this.totalPages,
-      required this.totalResults})
-      : _populars = populars;
+      {this.page = 1,
+      final List<Popular> results = const [],
+      this.totalPages = 1,
+      this.totalResults = 1})
+      : _results = results;
 
   factory _$_PopularResponse.fromJson(Map<String, dynamic> json) =>
       _$$_PopularResponseFromJson(json);
 
   @override
-  final int? page;
-  final List<Popular>? _populars;
+  @JsonKey()
+  final int page;
+  final List<Popular> _results;
   @override
-  List<Popular>? get populars {
-    final value = _populars;
-    if (value == null) return null;
+  @JsonKey()
+  List<Popular> get results {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_results);
   }
 
   @override
-  final int? totalPages;
+  @JsonKey()
+  final int totalPages;
   @override
-  final int? totalResults;
+  @JsonKey()
+  final int totalResults;
 
   @override
   String toString() {
-    return 'PopularResponse(page: $page, populars: $populars, totalPages: $totalPages, totalResults: $totalResults)';
+    return 'PopularResponse(page: $page, results: $results, totalPages: $totalPages, totalResults: $totalResults)';
   }
 
   @override
@@ -169,7 +171,7 @@ class _$_PopularResponse implements _PopularResponse {
         (other.runtimeType == runtimeType &&
             other is _$_PopularResponse &&
             (identical(other.page, page) || other.page == page) &&
-            const DeepCollectionEquality().equals(other._populars, _populars) &&
+            const DeepCollectionEquality().equals(other._results, _results) &&
             (identical(other.totalPages, totalPages) ||
                 other.totalPages == totalPages) &&
             (identical(other.totalResults, totalResults) ||
@@ -179,7 +181,7 @@ class _$_PopularResponse implements _PopularResponse {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, page,
-      const DeepCollectionEquality().hash(_populars), totalPages, totalResults);
+      const DeepCollectionEquality().hash(_results), totalPages, totalResults);
 
   @JsonKey(ignore: true)
   @override
@@ -197,22 +199,22 @@ class _$_PopularResponse implements _PopularResponse {
 
 abstract class _PopularResponse implements PopularResponse {
   const factory _PopularResponse(
-      {required final int? page,
-      required final List<Popular>? populars,
-      required final int? totalPages,
-      required final int? totalResults}) = _$_PopularResponse;
+      {final int page,
+      final List<Popular> results,
+      final int totalPages,
+      final int totalResults}) = _$_PopularResponse;
 
   factory _PopularResponse.fromJson(Map<String, dynamic> json) =
       _$_PopularResponse.fromJson;
 
   @override
-  int? get page;
+  int get page;
   @override
-  List<Popular>? get populars;
+  List<Popular> get results;
   @override
-  int? get totalPages;
+  int get totalPages;
   @override
-  int? get totalResults;
+  int get totalResults;
   @override
   @JsonKey(ignore: true)
   _$$_PopularResponseCopyWith<_$_PopularResponse> get copyWith =>

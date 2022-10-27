@@ -8,18 +8,19 @@ part of 'popular_response.dart';
 
 _$_PopularResponse _$$_PopularResponseFromJson(Map<String, dynamic> json) =>
     _$_PopularResponse(
-      page: json['page'] as int?,
-      populars: (json['populars'] as List<dynamic>?)
-          ?.map((e) => Popular.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      totalPages: json['totalPages'] as int?,
-      totalResults: json['totalResults'] as int?,
+      page: json['page'] as int? ?? 1,
+      results: (json['results'] as List<dynamic>?)
+              ?.map((e) => Popular.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      totalPages: json['totalPages'] as int? ?? 1,
+      totalResults: json['totalResults'] as int? ?? 1,
     );
 
 Map<String, dynamic> _$$_PopularResponseToJson(_$_PopularResponse instance) =>
     <String, dynamic>{
       'page': instance.page,
-      'populars': instance.populars,
+      'results': instance.results,
       'totalPages': instance.totalPages,
       'totalResults': instance.totalResults,
     };

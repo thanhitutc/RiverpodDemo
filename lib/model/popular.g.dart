@@ -7,18 +7,18 @@ part of 'popular.dart';
 // **************************************************************************
 
 _$_Popular _$$_PopularFromJson(Map<String, dynamic> json) => _$_Popular(
-      page: json['page'] as int?,
-      backdropPath: json['backdropPath'] as String?,
+      id: json['id'] as int?,
+      backdropPath: json['backdrop_path'] as String?,
       title: json['title'] as String?,
       overview: json['overview'] as String?,
-      posterPath: json['posterPath'] as String?,
+      posterPath: json['poster_path'] as String?,
     );
 
 Map<String, dynamic> _$$_PopularToJson(_$_Popular instance) =>
     <String, dynamic>{
-      'page': instance.page,
-      'backdropPath': instance.backdropPath,
+      'id': instance.id,
+      'backdrop_path': instance.backdropPath,
       'title': instance.title,
       'overview': instance.overview,
-      'posterPath': instance.posterPath,
+      'poster_path': instance.posterPath,
     };

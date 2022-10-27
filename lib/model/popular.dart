@@ -6,12 +6,12 @@ part 'popular.g.dart';
 @freezed
 class Popular with _$Popular {
   const factory Popular({
-    required final int? page,
-    required final String? backdropPath,
+    required final int? id,
+    @JsonKey(name: 'backdrop_path') final String? backdropPath,
     required final String? title,
     required final String? overview,
-    required final String? posterPath,
+    @JsonKey(name: 'poster_path')  final String? posterPath,
   }) = _Popular;
 
-  factory Popular.fromJson(Map<String, Object?> json) => _$PopularFromJson(json);
+  factory Popular.fromJson(Map<String, dynamic> json) => _$PopularFromJson(json);
 }

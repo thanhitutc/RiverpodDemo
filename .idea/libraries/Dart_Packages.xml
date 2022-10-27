@@ -240,6 +240,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_riverpod">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-2.0.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_test">
           <value>
             <list>
@@ -752,6 +759,7 @@
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blurhash-0.7.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_cache_manager-3.3.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/lib" />
+      <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-2.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/freezed-2.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-2.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/frontend_server_client-3.1.0/lib" />

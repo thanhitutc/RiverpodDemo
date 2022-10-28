@@ -17,7 +17,6 @@ class HomeViewModel extends StateNotifier<HomeState> {
   Future<void> loadData() async {
     try {
       state = state.copyWith(popularsState: const State.inProgress());
-      print("thanh_load_page: ${state.page}");
       final result = await movieRepository.fetchPopulars(state.page);
       state = state.copyWith(
         page: result.page,
@@ -25,7 +24,6 @@ class HomeViewModel extends StateNotifier<HomeState> {
         totalPages: result.totalPages,
         totalResults: result.totalResults,
       );
-      print("thanh_success: ${result}");
     } on Exception catch (e) {
       print("thanh_error: $e");
       state = state.copyWith(popularsState: const State.failed());
@@ -34,6 +32,7 @@ class HomeViewModel extends StateNotifier<HomeState> {
 
   Future<void> pullToRefresh() async{
     try {
+      state = state.copyWith(page: 1);
       final result = await movieRepository.fetchPopulars(state.page);
       state = state.copyWith(
         page: result.page,
@@ -46,19 +45,21 @@ class HomeViewModel extends StateNotifier<HomeState> {
     }
   }
 
-// Future<void> loadMore() async {
-//   try {
-//     state = const HomeState.inProgress();
-//     print("thanh_load_more_page: ${state.currentPage}");
-//     final result = await movieRepository.fetchPopulars(state.currentPage);
-//     state = HomeState.loaded(
-//       page: result.page,
-//       populars: result.populars,
-//       totalPages: result.totalPages,
-//       totalResults: result.totalResults,
-//     );
-//   } on Exception catch (e) {
-//     state = const HomeState.failed();
-//   }
-// }
+  Future<void> loadMore() async {
+    if (!state.loadMoreAble()) return;
+    try {
+      state = state.copyWith(page: state.page + 1);
+      print("thanh_load_more_page: ${state.page}");
+      final response = await movieRepository.fetchPopulars(state.page);
+      final populars = state.popularsState.data ?? [];
+      state = state.copyWith(
+        page: response.page,
+        popularsState: State.successful([...populars, ...response.results]),
+        totalPages: response.totalPages,
+        totalResults: response.totalResults,
+      );
+    } on Exception catch (e) {
+      state = state.copyWith(popularsState: const State.failed());
+    }
+  }
 }

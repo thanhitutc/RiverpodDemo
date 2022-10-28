@@ -5,14 +5,16 @@ import 'package:riverpod_demo/domain/home/home_view_model.dart';
 import 'package:riverpod_demo/model/popular.dart';
 import 'package:riverpod_demo/ui/home/popular_item.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends ConsumerStatefulWidget {
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
-        // TODO load more
+        ref.read(homeViewModelNotifierProvider.notifier).loadMore();
       }
     });
   }
@@ -49,35 +51,31 @@ class _HomePageState extends State<HomePage> {
               init: () => const Center(child: CircularProgressIndicator()),
               inProgress: () =>
                   const Center(child: CircularProgressIndicator()),
-              successful: (populars) => _buildList(vm, populars),
+              successful: (populars) => RefreshIndicator(
+                onRefresh: () async => vm.pullToRefresh(),
+                child: ListView.builder(
+                  controller: _scrollController,
+                  itemCount: populars.length,
+                  itemBuilder: (context, index) {
+                    if (index == populars.length - 1 && state.loadMoreAble()) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: Center(
+                          child: SizedBox.fromSize(
+                            size: const Size(20.0, 20.0),
+                            child: const CircularProgressIndicator(),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return PopularItem(popular: populars[index]);
+                    }
+                  },
+                ),
+              ),
               failed: () => const Center(child: Text("Error")),
             );
           }),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildList(HomeViewModel viewModel, List<Popular> populars) {
-    return RefreshIndicator(
-      onRefresh: () async => viewModel.pullToRefresh(),
-      child: Expanded(
-        child: ListView.builder(
-          itemCount: populars.length,
-          itemBuilder: (context, index) {
-            if (index == populars.length - 1) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Center(
-                  child: SizedBox.fromSize(
-                    size: const Size(20.0, 20.0),
-                    child: const CircularProgressIndicator(),
-                  ),
-                ),
-              );
-            }
-            return PopularItem(popular: populars[index]);
-          },
         ),
       ),
     );

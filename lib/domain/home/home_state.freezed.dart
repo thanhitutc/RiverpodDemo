@@ -141,12 +141,13 @@ class __$$_LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
+class _$_Loaded extends _Loaded {
   const _$_Loaded(
       {required this.page,
       this.popularsState = const State<List<Popular>>.init(),
       required this.totalPages,
-      required this.totalResults});
+      required this.totalResults})
+      : super._();
 
   @override
   final int page;
@@ -188,12 +189,13 @@ class _$_Loaded implements _Loaded {
       __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 }
 
-abstract class _Loaded implements HomeState {
+abstract class _Loaded extends HomeState {
   const factory _Loaded(
       {required final int page,
       final State<List<Popular>> popularsState,
       required final int totalPages,
       required final int totalResults}) = _$_Loaded;
+  const _Loaded._() : super._();
 
   @override
   int get page;

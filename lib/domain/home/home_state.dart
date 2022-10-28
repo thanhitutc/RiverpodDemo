@@ -6,6 +6,7 @@ part 'home_state.freezed.dart';
 
 @freezed
 class HomeState with _$HomeState {
+  const HomeState._();
   const factory HomeState({
     required int page,
     @Default(State<List<Popular>>.init()) State<List<Popular>> popularsState,
@@ -18,4 +19,6 @@ class HomeState with _$HomeState {
       totalPages: 1,
       totalResults: 1,
   );
+
+  bool loadMoreAble() => page < totalPages;
 }

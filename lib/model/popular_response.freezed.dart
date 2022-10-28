@@ -22,7 +22,9 @@ PopularResponse _$PopularResponseFromJson(Map<String, dynamic> json) {
 mixin _$PopularResponse {
   int get page => throw _privateConstructorUsedError;
   List<Popular> get results => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_pages')
   int get totalPages => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_results')
   int get totalResults => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +40,10 @@ abstract class $PopularResponseCopyWith<$Res> {
       _$PopularResponseCopyWithImpl<$Res, PopularResponse>;
   @useResult
   $Res call(
-      {int page, List<Popular> results, int totalPages, int totalResults});
+      {int page,
+      List<Popular> results,
+      @JsonKey(name: 'total_pages') int totalPages,
+      @JsonKey(name: 'total_results') int totalResults});
 }
 
 /// @nodoc
@@ -89,7 +94,10 @@ abstract class _$$_PopularResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int page, List<Popular> results, int totalPages, int totalResults});
+      {int page,
+      List<Popular> results,
+      @JsonKey(name: 'total_pages') int totalPages,
+      @JsonKey(name: 'total_results') int totalResults});
 }
 
 /// @nodoc
@@ -135,8 +143,8 @@ class _$_PopularResponse implements _PopularResponse {
   const _$_PopularResponse(
       {this.page = 1,
       final List<Popular> results = const [],
-      this.totalPages = 1,
-      this.totalResults = 1})
+      @JsonKey(name: 'total_pages') this.totalPages = 1,
+      @JsonKey(name: 'total_results') this.totalResults = 1})
       : _results = results;
 
   factory _$_PopularResponse.fromJson(Map<String, dynamic> json) =>
@@ -154,10 +162,10 @@ class _$_PopularResponse implements _PopularResponse {
   }
 
   @override
-  @JsonKey()
+  @JsonKey(name: 'total_pages')
   final int totalPages;
   @override
-  @JsonKey()
+  @JsonKey(name: 'total_results')
   final int totalResults;
 
   @override
@@ -199,10 +207,11 @@ class _$_PopularResponse implements _PopularResponse {
 
 abstract class _PopularResponse implements PopularResponse {
   const factory _PopularResponse(
-      {final int page,
-      final List<Popular> results,
-      final int totalPages,
-      final int totalResults}) = _$_PopularResponse;
+          {final int page,
+          final List<Popular> results,
+          @JsonKey(name: 'total_pages') final int totalPages,
+          @JsonKey(name: 'total_results') final int totalResults}) =
+      _$_PopularResponse;
 
   factory _PopularResponse.fromJson(Map<String, dynamic> json) =
       _$_PopularResponse.fromJson;
@@ -212,8 +221,10 @@ abstract class _PopularResponse implements PopularResponse {
   @override
   List<Popular> get results;
   @override
+  @JsonKey(name: 'total_pages')
   int get totalPages;
   @override
+  @JsonKey(name: 'total_results')
   int get totalResults;
   @override
   @JsonKey(ignore: true)

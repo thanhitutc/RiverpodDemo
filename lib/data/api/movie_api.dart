@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
+import 'package:riverpod_demo/model/movie_detail.dart';
 import 'package:riverpod_demo/model/popular_response.dart';
 
 part 'movie_api.g.dart';
@@ -12,5 +13,8 @@ abstract class MovieApi {
 
   @GET("/movie/popular?api_key=$api_key")
   Future<PopularResponse> getPopular(@Query("page") int page);
+
+  @GET("/movie/{id}?api_key=$api_key")
+  Future<MovieDetail> getMovieDetail(@Path("id") int id);
 
 }

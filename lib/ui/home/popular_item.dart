@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:riverpod_demo/model/movie_detail.dart';
 import 'package:riverpod_demo/model/popular.dart';
+import 'package:riverpod_demo/ui/detail/detail_movie_page.dart';
+
+import '../../common/Utils.dart';
 
 class PopularItem extends StatelessWidget {
   const PopularItem({super.key, required this.popular});
@@ -12,7 +16,11 @@ class PopularItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: InkWell(
-        onTap: () => {},
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MovieDetailPage(idMovie: popular.id ?? -1)),
+        ),
         child: SizedBox(
           height: 150,
           child: Row(
@@ -63,9 +71,5 @@ class PopularItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String getImageUrl(String? path) {
-    return path != null ? 'https://image.tmdb.org/t/p/w500/$path' : "";
   }
 }
